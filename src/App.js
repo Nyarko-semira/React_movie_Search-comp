@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className='app'>
-      <h1>MovieLand</h1>
+      <h1>NetMovie</h1>
 
       <div className='search'>
         <input placeholder='search for movies'

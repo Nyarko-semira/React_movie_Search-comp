@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./App.css";
+import { FaDownload } from 'react-icons/fa';
+import { RiMovie2Line } from "react-icons/ri";
+import { CiCircleCheck } from "react-icons/ci";
+import { MdIosShare } from "react-icons/md";
+
+
 
 const API_URL = 'http://www.omdbapi.com?apikey=a6b5d01d';
 
+
 function Modal() {
   const { imdbID } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const backgroundImage = movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400';
   useEffect(() => {
     const fetchMovieDetails = async () => {
       setLoading(true);
@@ -20,6 +28,7 @@ function Modal() {
 
     fetchMovieDetails();
   }, [imdbID]);
+
 
   if (loading) {
     return (
@@ -36,23 +45,54 @@ function Modal() {
   }
 
   return (
-    <div className=' row details'>
-      
-        <div className='row'>
-          <div className='col'>
-            <img src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'} alt={movie.Title} className='photos' />
-          </div>
-          <div className='col'>
-            <p className='details-title'> {movie.Title} {movie.Year}</p>
-            <p><strong>Genre:</strong> {movie.Genre}</p>
-            <p><strong>Director:</strong> {movie.Director}</p>
-            <p><strong>Actors:</strong> {movie.Actors}</p>
-            <p><strong>Plot:</strong> {movie.Plot}</p>
-            <p><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
-          </div>
+    <>
+      <div className='div-photo' style={{
+
+        backgroundImage: `url(${movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        width: '100%',
+        height: '50vh'
+
+      }}>
+      </div>
+      <div className='contain'>
+        <div className=''>
+          <img
+            src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'}
+            alt={movie.Title}
+            className='img-fluid small-photos'
+          />
         </div>
-     
-    </div>
+
+        <div className='details'>
+          <p className='details-title'>{movie.Title} <span className='span-title'>({movie.Year})</span></p>
+          <p><span className='span-director'>Director by {movie.Director}</span></p>
+          <p className='rating'><strong>IMDB Rating:</strong> <span className='span-rating'>{movie.imdbRating}</span></p>
+          <div className='watchlista'>
+            <button> <FaDownload /> Add to watchlist</button>
+
+            <div className='icons'>
+              <RiMovie2Line />
+              <CiCircleCheck />
+              <MdIosShare />
+            </div>
+          </div>
+
+          <p className='genre' ><strong >Genre:</strong> {movie.Genre}</p>
+          <p className='actor'><strong>Actors:</strong> <span className='actor-details'> {movie.Actors}</span></p>
+          <p className='plot'><strong>Plot:</strong> {movie.Plot}</p>
+        </div>
+
+
+
+
+      </div>
+
+
+
+    </>
   );
 }
 

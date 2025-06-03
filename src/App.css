@@ -13,6 +13,8 @@
 }
 
 body {
+  width: 100%;
+  height: 100%;
   font-family: var(--font-roboto);
   background-color: #212426;
 }
@@ -209,6 +211,12 @@ h1 {
     width: 20px;
     height: 20px;
   }
+
+  .contain{
+  display: flex!important;
+  flex-direction: column;
+  gap: 30px;
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -228,6 +236,12 @@ h1 {
     width: "100%";
     margin: 1rem;
   }
+
+  .contain{
+  display: flex!important;
+  flex-direction: column;
+  gap: 30px;
+}
 }
 
  /* .detail-movie{
@@ -243,23 +257,100 @@ h1 {
 }  */
 
 
-.details{
-     width: 100%;
-  height: 100%;
-  margin: 20px  auto 10px;
-  background-color: rgb(228, 221, 221)!important;
-  padding: 20px 30px;
-  
-
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-
-} 
 
 
 
 .details-title{
-  color: black!important;
-  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+
 }
+
+.contain{
+  width: 100%;
+  /* margin: auto auto; */
+  padding: 30px;
+  display: flex!important;
+  justify-content: space-between;
+  /* align-items: center!important; */
+  gap: 30px;
+}
+
+.details{
+  color: white!important;
+  
+}
+
+
+.span-title{
+  color: chocolate;
+
+}
+
+.span-director{
+ color: #a1a1a1;
+ font-size: 14px;
+}
+
+.rating{
+  margin: 20px 0;
+}
+
+.span-rating{
+  color: white;
+  background-color: rgb(142, 242, 145);
+  width: 250px;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.genre{
+  font-size: 15px;
+  color:antiquewhite;
+  margin: 20px 0;
+
+}
+
+.actor{
+  font-size: 14px;
+
+}
+.actor-details{
+  color: rgb(111, 111, 239);
+}
+
+.plot{
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size:25px;
+}
+
+.watchlista{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.watchlista button{
+  width: 150px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.small-photos{
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+ 
+}
+
+
+
 

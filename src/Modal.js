@@ -80,18 +80,14 @@ function Modal() {
             </div>
           </div>
 
-          <p className='genre' ><strong >Genre:</strong> {movie.Genre}</p>
+          <p className='genre'><strong >Genre:</strong> {movie.Genre}</p>
           <p className='actor'><strong>Actors:</strong> <span className='actor-details'> {movie.Actors}</span></p>
           <p className='plot'><strong>Plot:</strong> {movie.Plot}</p>
+          <p className='language'><strong>Language:</strong> {movie.Language}</p>
+          <p className='country'><strong>Country:</strong> {movie.Country}</p>
+          <p className='awards'><strong>Awards:</strong> {movie.Awards}</p>
         </div>
-
-
-
-
       </div>
-
-
-
     </>
   );
 }
